@@ -3,6 +3,7 @@ MAINTAINER Oliver Soell <oliver@soell.net>
 
 RUN apt-get install -y gettext-base
 ADD scoutd.yml.tmpl /etc/scout/scoutd.yml.tmpl
+ADD start.sh /start.sh
 
-ENTRYPOINT ["/bin/bash", "-c", "cat /etc/scout/scoutd.yml.tmpl | envsubst > /etc/scout/scoutd.yml"]
+ENTRYPOINT ["/start.sh"]
 CMD ["/usr/bin/scoutd", "start"]
